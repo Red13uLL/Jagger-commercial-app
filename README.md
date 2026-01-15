@@ -2,6 +2,7 @@
 
 ## Table of Contents
 
+- [Live Demo](#live-demo)
 - [Assignment Overview](#assignment-overview)
 - [Requirements](#requirements)
 - [Getting Started](#getting-started)
@@ -12,6 +13,13 @@
 Welcome! This assignment will help us evaluate your frontend skills and give you insight into the kind of work we do at JAGGAER.
 
 **You will build a React frontend for a simple e-commerce app using the provided backend.**
+
+---
+
+## Live Demo
+
+- Frontend: https://jaggaer-frontend-20260115145755.netlify.app
+- GraphQL API: https://jagger-commercial-app.onrender.com/graphql
 
 ---
 
