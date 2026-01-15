@@ -32,7 +32,9 @@ fastify.register(mercurius, {
 
 const start = async () => {
   try {
-    await fastify.listen({ port: 3000, host: '127.0.0.1' });
+    const port = Number(process.env.PORT) || 3000;
+    const host = process.env.HOST || '0.0.0.0';
+    await fastify.listen({ port, host });
     console.log(`Server listening on ${fastify.server.address().port}`);
   } catch (err) {
     fastify.log.error(err);
