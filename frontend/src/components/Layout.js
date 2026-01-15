@@ -1,18 +1,11 @@
 import { Box, Container } from '@mui/material';
-import { Outlet, useLocation } from 'react-router-dom';
-import { useEffect, useMemo, useState } from 'react';
+import { Outlet } from 'react-router-dom';
+import { useMemo, useState } from 'react';
 import Header from './Header';
 
 const Layout = () => {
-  const location = useLocation();
-  const [headerTitle, setHeaderTitle] = useState('JAGGAER Store');
+  const [headerTitle, setHeaderTitle] = useState('Products');
   const [headerAction, setHeaderAction] = useState(null);
-
-  useEffect(() => {
-    if (location.pathname === '/') {
-      setHeaderTitle('All Products');
-    }
-  }, [location.pathname]);
 
   const outletContext = useMemo(
     () => ({ setHeaderTitle, setHeaderAction }),
@@ -22,7 +15,7 @@ const Layout = () => {
   return (
     <Box sx={{ minHeight: '100vh' }}>
       <Header title={headerTitle} action={headerAction} />
-      <Box component="main" sx={{ py: { xs: 3, md: 5 } }}>
+      <Box component="main" sx={{ py: { xs: 3, md: 4 } }}>
         <Container maxWidth="lg">
           <Outlet context={outletContext} />
         </Container>

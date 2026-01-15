@@ -1,66 +1,94 @@
 import { createTheme } from '@mui/material/styles';
+import { tokens } from './styles/tokens';
 
 const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#e86a33',
-      contrastText: '#ffffff'
+      main: tokens.colors.primary
     },
-    secondary: {
-      main: '#2a9d8f'
+    error: {
+      main: tokens.colors.badge
     },
     background: {
-      default: '#fff7ee',
-      paper: '#ffffff'
+      default: tokens.colors.background,
+      paper: tokens.colors.surface
     },
     text: {
-      primary: '#1f2933',
-      secondary: '#5f6b7a'
+      primary: tokens.colors.textPrimary,
+      secondary: tokens.colors.textSecondary
     }
   },
   typography: {
-    fontFamily: '"Space Grotesk", "Segoe UI", sans-serif',
-    h1: {
-      fontFamily: '"Fraunces", "Times New Roman", serif',
-      fontWeight: 600
-    },
-    h2: {
-      fontFamily: '"Fraunces", "Times New Roman", serif',
-      fontWeight: 600
-    },
-    h3: {
-      fontFamily: '"Fraunces", "Times New Roman", serif',
-      fontWeight: 600
-    }
+    fontFamily: 'var(--font-base)'
   },
   shape: {
-    borderRadius: 14
+    borderRadius: 4
   },
   components: {
-    MuiAppBar: {
+    MuiCssBaseline: {
       styleOverrides: {
-        root: {
-          backgroundColor: '#fffaf2',
-          color: '#1f2933',
-          borderBottom: '1px solid #e3d7c8'
+        ':root': {
+          '--color-primary': tokens.colors.primary,
+          '--color-background': tokens.colors.background,
+          '--color-surface': tokens.colors.surface,
+          '--color-text-primary': tokens.colors.textPrimary,
+          '--color-text-secondary': tokens.colors.textSecondary,
+          '--color-border': tokens.colors.border,
+          '--color-badge': tokens.colors.badge,
+          '--color-neutral-button': tokens.colors.neutralButton,
+          '--color-neutral-button-hover': tokens.colors.neutralButtonHover,
+          '--color-section': tokens.colors.section,
+          '--font-base': tokens.fonts.base
+        },
+        '*, *::before, *::after': {
+          boxSizing: 'border-box'
+        },
+        body: {
+          margin: 0,
+          minHeight: '100vh',
+          backgroundColor: 'var(--color-background)',
+          color: 'var(--color-text-primary)'
+        },
+        a: {
+          color: 'inherit',
+          textDecoration: 'none'
+        },
+        img: {
+          maxWidth: '100%',
+          display: 'block'
+        },
+        '.cart-pulse .MuiBadge-badge': {
+          animation: 'cartPulse 0.35s ease-out'
+        },
+        '@keyframes cartPulse': {
+          '0%': {
+            transform: 'scale(1)'
+          },
+          '40%': {
+            transform: 'scale(1.35)'
+          },
+          '100%': {
+            transform: 'scale(1)'
+          }
         }
       }
     },
     MuiButton: {
       styleOverrides: {
         root: {
-          textTransform: 'none',
-          fontWeight: 600
+          textTransform: 'uppercase',
+          fontWeight: 600,
+          fontSize: '0.75rem',
+          letterSpacing: '0.4px'
         }
       }
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          backgroundColor: '#ffffff',
-          border: '1px solid #eee3d6',
-          boxShadow: '0 10px 30px rgba(31, 41, 51, 0.08)'
+          border: '1px solid var(--color-border)',
+          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.15)'
         }
       }
     }

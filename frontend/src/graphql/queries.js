@@ -40,6 +40,7 @@ export const GET_CART = gql`
           name
           price
           imageUrl
+          shortDescription
         }
       }
       count
