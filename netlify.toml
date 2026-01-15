@@ -4,7 +4,7 @@
   publish = "dist"
 
 [build.environment]
-  GRAPHQL_URL = "jagger-app"
+  GRAPHQL_URL = "https://jagger-app/graphql"
 
 [[redirects]]
   from = "/*"
